@@ -9,7 +9,7 @@ namespace OrderApi.Application.Services
 {
     public interface IOrderService
     {
-        Task<IAsyncEnumerable<OrderDTO>> GetOrdersByClientId(int clientId);
+        Task<IEnumerable<OrderDTO>> GetOrdersByClientId(int clientId);
 
         Task<OrderDetailsDTO> GetOrderDetails(int orderId);
     }

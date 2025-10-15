@@ -1,4 +1,5 @@
-﻿using OrderApi.Domain.Entities;
+﻿using OrderApi.Application.Interfaces;
+using OrderApi.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,10 @@ namespace OrderApi.Application.DTOs.Conversions
             PurchaseQuantity = order.PurchaseQuantity,
         };
 
-        public static (OrderDTO?, IEnumerable<OrderDTO>?) FromEntity(Order? order, IEnumerable<OrderDTO>? orders)
+        public static (OrderDTO?, IEnumerable<OrderDTO>?) FromEntity(Order? order, IEnumerable<Order>? orders)
         {
-            if(order is not null || orders is null)
+            
+            if (order is not null || orders is null)
             {
                 var singleOrder = new OrderDTO(
                     order!.Id,
@@ -42,8 +44,11 @@ namespace OrderApi.Application.DTOs.Conversions
                     o.PurchaseQuantity,
                     o.OrderedDate));
 
-                return(null , _orders);
+                return (null, _orders);
             }
+
+            return (null, null);
+
         }
     }
 }
