@@ -1,4 +1,4 @@
-
+using AuthenticationApi.Infrastructure.DependenctInjection;
 namespace AuthenticationApi.Presentation
 {
     public class Program
@@ -10,19 +10,19 @@ namespace AuthenticationApi.Presentation
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddInfrastructureService(builder.Configuration);
             var app = builder.Build();
 
+            app.UserInfrasrtucturePolicy();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

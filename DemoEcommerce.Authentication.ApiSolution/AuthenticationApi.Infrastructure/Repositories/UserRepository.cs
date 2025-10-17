@@ -34,7 +34,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
         public async Task<Response> Login(LoginDTO loginDTO)
         {
             var getUser = await GetUserByEmail(loginDTO.Email);
-            if (getUser is null)
+            if (getUser is not null)
                 return new Response(false, $"Invalid credentials");
 
             bool verifyPassword = BCrypt.Net.BCrypt.Verify(loginDTO.Password, getUser.Password);

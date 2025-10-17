@@ -15,8 +15,4 @@
     <ProjectReference Include="..\AuthenticationApi.Domain\AuthenticationApi.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DependenctInjection\" />
-  </ItemGroup>
-
 </Project>
