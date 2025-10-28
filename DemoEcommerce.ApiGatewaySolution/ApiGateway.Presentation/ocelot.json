@@ -17,7 +17,7 @@
         "Period": "60s",
         "Limit": 1,
         "PeriodTimespan": 10
-      }`
+      }
     },
 
     //Product Api
